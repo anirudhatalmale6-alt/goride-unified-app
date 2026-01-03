@@ -18,6 +18,16 @@ subprojects {
     }
 }
 
+subprojects { subproject ->
+    subproject.plugins.withId("com.android.library") {
+        subproject.android {
+            if (namespace == null) {
+                namespace = "com.example.${subproject.name.replace('-', '_').replace('_', '')}"
+            }
+        }
+    }
+}
+
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }
