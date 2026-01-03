@@ -1212,58 +1212,9 @@ class FireStoreUtils {
     yield* getNearestFreightOrderRequestController!.stream;
   }
 
-  closeStream() {
-    if (getNearestOrderRequestController != null) {
-      getNearestOrderRequestController!.close();
-    }
-  }
-
   closeFreightStream() {
     if (getNearestFreightOrderRequestController != null) {
       getNearestFreightOrderRequestController!.close();
     }
-  }
-
-  static Future<bool?> setOrder(OrderModel orderModel) async {
-    bool isAdded = false;
-    await fireStore.collection(CollectionName.orders).doc(orderModel.id).set(orderModel.toJson()).then((value) {
-      isAdded = true;
-    }).catchError((error) {
-      log("Failed to update user: $error");
-      isAdded = false;
-    });
-    return isAdded;
-  }
-
-  static Future<bool?> setInterCityOrder(InterCityOrderModel orderModel) async {
-    bool isAdded = false;
-    await fireStore.collection(CollectionName.ordersIntercity).doc(orderModel.id).set(orderModel.toJson()).then((value) {
-      isAdded = true;
-    }).catchError((error) {
-      log("Failed to update user: $error");
-      isAdded = false;
-    });
-    return isAdded;
-  }
-
-  static Future<bool?> setReview(ReviewModel reviewModel) async {
-    bool isAdded = false;
-    await fireStore.collection(CollectionName.reviewCustomer).doc(reviewModel.id).set(reviewModel.toJson()).then((value) {
-      isAdded = true;
-    }).catchError((error) {
-      log("Failed to update user: $error");
-      isAdded = false;
-    });
-    return isAdded;
-  }
-
-  static Future<ReviewModel?> getReview(String orderId) async {
-    ReviewModel? reviewModel;
-    await fireStore.collection(CollectionName.reviewCustomer).doc(orderId).get().then((value) {
-      if (value.data() != null) {
-        reviewModel = ReviewModel.fromJson(value.data()!);
-      }
-    });
-    return reviewModel;
   }
 }
