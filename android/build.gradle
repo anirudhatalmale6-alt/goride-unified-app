@@ -24,8 +24,20 @@ subprojects { subproject ->
             if (namespace == null) {
                 namespace = "com.example.${subproject.name.replace('-', '_').replace('_', '')}"
             }
+            if (!subproject.android.hasProperty('compileSdkVersion') || subproject.android.compileSdkVersion == null) {
+                compileSdk 35
+            }
         }
     }
+}
+
+// Provide flutter extension for plugins that expect it
+ext {
+    flutter = [
+        compileSdkVersion: 35,
+        minSdkVersion: 23,
+        targetSdkVersion: 35
+    ]
 }
 
 tasks.register("clean", Delete) {
