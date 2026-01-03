@@ -36,6 +36,17 @@ subprojects { subproject ->
             if (!subproject.android.hasProperty('compileSdkVersion') || subproject.android.compileSdkVersion == null) {
                 compileSdk 35
             }
+            compileOptions {
+                sourceCompatibility JavaVersion.VERSION_17
+                targetCompatibility JavaVersion.VERSION_17
+            }
+        }
+    }
+    subproject.plugins.withId("org.jetbrains.kotlin.android") {
+        subproject.android {
+            kotlinOptions {
+                jvmTarget = '17'
+            }
         }
     }
 }
