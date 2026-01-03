@@ -28,4 +28,6 @@ class CollectionName {
   static const String driverRules = "driver_rules";
   static const String bankDetails = "bank_details";
   static const String withdrawHistory = "withdraw_history";
+  static const String withdrawalHistory = "withdrawal_history";
+  static const String reviewCustomer = "review_customer";
 }

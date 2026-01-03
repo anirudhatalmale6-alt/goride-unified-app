@@ -1145,10 +1145,10 @@ class FireStoreUtils {
     return driverIdAcceptReject;
   }
 
-  StreamController<List<OrderModel>>? getNearestOrderRequestController;
+  StreamController<List<OrderModel>>? getNearestDriverOrderRequestController;
 
   Stream<List<OrderModel>> getOrders(DriverUserModel driverUserModel, double? latitude, double? longLatitude) async* {
-    getNearestOrderRequestController = StreamController<List<OrderModel>>.broadcast();
+    getNearestDriverOrderRequestController = StreamController<List<OrderModel>>.broadcast();
     List<OrderModel> ordersList = [];
     Query<Map<String, dynamic>> query = fireStore
         .collection(CollectionName.orders)
@@ -1173,10 +1173,16 @@ class FireStoreUtils {
           ordersList.add(orderModel);
         }
       }
-      getNearestOrderRequestController!.sink.add(ordersList);
+      getNearestDriverOrderRequestController!.sink.add(ordersList);
     });
 
-    yield* getNearestOrderRequestController!.stream;
+    yield* getNearestDriverOrderRequestController!.stream;
+  }
+
+  closeDriverOrderStream() {
+    if (getNearestDriverOrderRequestController != null) {
+      getNearestDriverOrderRequestController!.close();
+    }
   }
 
   StreamController<List<InterCityOrderModel>>? getNearestFreightOrderRequestController;
