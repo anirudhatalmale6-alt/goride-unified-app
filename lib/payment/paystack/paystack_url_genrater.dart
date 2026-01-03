@@ -2,12 +2,13 @@ import 'dart:convert';
 
 import 'package:goride/model/payment_model.dart';
 import 'package:goride/model/user_model.dart';
+import 'package:goride/model/driver_user_model.dart';
 import 'package:goride/payment/paystack/pay_stack_url_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 class PayStackURLGen {
-  static Future payStackURLGen({required String amount, required String secretKey, required String currency, required UserModel userModel}) async {
+  static Future payStackURLGen({required String amount, required String secretKey, required String currency, required dynamic userModel}) async {
     const url = "https://api.paystack.co/transaction/initialize";
     final response = await http.post(Uri.parse(url), body: {
       "email": userModel.email,
@@ -49,7 +50,7 @@ class PayStackURLGen {
     //PayPalClientSettleModel.fromJson(data);
   }
 
-  static Future<String> getPayHTML({required String amount, required Payfast payFastSettingData, required UserModel userModel}) async {
+  static Future<String> getPayHTML({required String amount, required Payfast payFastSettingData, required dynamic userModel}) async {
     String newUrl = 'https://${payFastSettingData.isSandbox == false ? "www" : "sandbox"}.payfast.co.za/eng/process';
     Map body = {
       'merchant_id': payFastSettingData.merchantId,

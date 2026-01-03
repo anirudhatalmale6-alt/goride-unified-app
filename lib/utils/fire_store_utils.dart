@@ -949,17 +949,17 @@ class FireStoreUtils {
     return isFirst;
   }
 
-  Future<List<ZoneModel>?> getZone() async {
-    List<ZoneModel> airPortList = [];
+  static Future<List<ZoneModel>?> getZone() async {
+    List<ZoneModel> zoneList = [];
     await fireStore.collection(CollectionName.zone).where('publish', isEqualTo: true).get().then((value) {
       for (var element in value.docs) {
-        ZoneModel ariPortModel = ZoneModel.fromJson(element.data());
-        airPortList.add(ariPortModel);
+        ZoneModel zoneModel = ZoneModel.fromJson(element.data());
+        zoneList.add(zoneModel);
       }
     }).catchError((error) {
       log(error.toString());
     });
-    return airPortList;
+    return zoneList;
   }
 
   // Driver-specific methods

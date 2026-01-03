@@ -106,8 +106,12 @@ class ButtonThem {
     double btnWidthRatio = 0.9,
     required Function() onPress,
     bool isVisible = true,
+    Color? btnColor,
+    Color? txtColor,
   }) {
     final themeChange = Provider.of<DarkThemeProvider>(context);
+    final effectiveBtnColor = btnColor ?? (themeChange.getThem() ? AppColors.darkModePrimary : AppColors.primary);
+    final effectiveTxtColor = txtColor ?? Colors.white;
 
     return Visibility(
       visible: isVisible,
@@ -120,11 +124,11 @@ class ButtonThem {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
           ),
-          color: themeChange.getThem() ? AppColors.darkModePrimary : AppColors.primary,
+          color: effectiveBtnColor,
           child: Text(
             title.toUpperCase(),
             textAlign: TextAlign.center,
-            style: GoogleFonts.poppins(fontSize: txtSize, fontWeight: FontWeight.w600),
+            style: GoogleFonts.poppins(fontSize: txtSize, fontWeight: FontWeight.w600, color: effectiveTxtColor),
           ),
         ),
       ),
