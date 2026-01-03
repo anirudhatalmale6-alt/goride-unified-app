@@ -44,12 +44,16 @@ subprojects { subproject ->
     }
 }
 
-// Configure Kotlin JVM target for all projects
+// Configure Kotlin JVM target and Java compatibility for all projects
 allprojects {
     tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
         kotlinOptions {
             jvmTarget = '17'
         }
+    }
+    tasks.withType(JavaCompile).configureEach {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }
 
