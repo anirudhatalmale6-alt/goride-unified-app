@@ -42,8 +42,17 @@ subprojects { subproject ->
             }
         }
     }
-    subproject.plugins.withId("org.jetbrains.kotlin.android") {
-        subproject.android {
+    subproject.afterEvaluate {
+        if (subproject.hasProperty('android')) {
+            subproject.android {
+                if (it.hasProperty('kotlinOptions')) {
+                    kotlinOptions {
+                        jvmTarget = '17'
+                    }
+                }
+            }
+        }
+        subproject.tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
             kotlinOptions {
                 jvmTarget = '17'
             }
