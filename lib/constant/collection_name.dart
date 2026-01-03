@@ -21,4 +21,11 @@ class CollectionName {
   static const String freightVehicle = "freight_vehicle";
   static const String airPorts = "airports";
   static const String zone = "zone";
+  static const String chat = "chat";
+  static const String documents = "documents";
+  static const String driverDocument = "driver_document";
+  static const String vehicleType = "vehicle_type";
+  static const String driverRules = "driver_rules";
+  static const String bankDetails = "bank_details";
+  static const String withdrawHistory = "withdraw_history";
 }

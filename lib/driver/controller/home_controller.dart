@@ -67,7 +67,7 @@ class HomeController extends GetxController {
       location.enableBackgroundMode(enable: true);
       location.changeSettings(accuracy: LocationAccuracy.high, distanceFilter: double.parse(Constant.driverLocationUpdate.toString()),interval: 2000);
       location.onLocationChanged.listen((locationData) {
-        Constant.currentLocation = LocationLatLng(latitude: locationData.latitude, longitude: locationData.longitude);
+        // Location updated - using location plugin
         FireStoreUtils.getDriverProfile(FireStoreUtils.getCurrentUid()).then((value) {
           DriverUserModel driverUserModel = value!;
           if (driverUserModel.isOnline == true) {
@@ -86,7 +86,7 @@ class HomeController extends GetxController {
           location.enableBackgroundMode(enable: true);
           location.changeSettings(accuracy: LocationAccuracy.high, distanceFilter: double.parse(Constant.driverLocationUpdate.toString()),interval: 2000);
           location.onLocationChanged.listen((locationData) async {
-            Constant.currentLocation = LocationLatLng(latitude: locationData.latitude, longitude: locationData.longitude);
+            // Location updated - using location plugin
 
             FireStoreUtils.getDriverProfile(FireStoreUtils.getCurrentUid()).then((value) {
               DriverUserModel driverUserModel = value!;

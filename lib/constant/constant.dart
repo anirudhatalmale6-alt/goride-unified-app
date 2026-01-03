@@ -24,6 +24,7 @@ import 'package:goride/model/map_model.dart';
 import 'package:goride/model/tax_model.dart';
 import 'package:goride/themes/app_colors.dart';
 import 'package:goride/utils/Preferences.dart';
+import 'package:goride/utils/DarkThemeProvider.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -35,6 +36,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:uuid/uuid.dart';
 import 'package:video_thumbnail/video_thumbnail.dart';
+import 'package:provider/provider.dart';
 
 class Constant {
   static const String phoneLoginType = "phone";
@@ -338,5 +340,53 @@ class Constant {
       }
     }
     return taxAmount;
+  }
+
+  static Future<DateTime?> selectDate(BuildContext context) async {
+    final DateTime? pickedDate = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
+      builder: (context, child) {
+        final themeChange = Provider.of<DarkThemeProvider>(context);
+        return Theme(
+          data: ThemeData.light().copyWith(
+            primaryColor: themeChange.getThem() ? AppColors.darkModePrimary : AppColors.primary,
+            colorScheme: ColorScheme.light(primary: themeChange.getThem() ? AppColors.darkModePrimary : AppColors.primary),
+            buttonTheme: const ButtonThemeData(textTheme: ButtonTextTheme.primary),
+          ),
+          child: child!,
+        );
+      },
+    );
+    if (pickedDate != null) {
+      return pickedDate;
+    }
+    return null;
+  }
+
+  static Future<DateTime?> selectFetureDate(BuildContext context) async {
+    final DateTime? pickedDate = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime.now(),
+      lastDate: DateTime(2200),
+      builder: (context, child) {
+        final themeChange = Provider.of<DarkThemeProvider>(context);
+        return Theme(
+          data: ThemeData.light().copyWith(
+            primaryColor: themeChange.getThem() ? AppColors.darkModePrimary : AppColors.primary,
+            colorScheme: ColorScheme.light(primary: themeChange.getThem() ? AppColors.darkModePrimary : AppColors.primary),
+            buttonTheme: const ButtonThemeData(textTheme: ButtonTextTheme.primary),
+          ),
+          child: child!,
+        );
+      },
+    );
+    if (pickedDate != null) {
+      return pickedDate;
+    }
+    return null;
   }
 }
