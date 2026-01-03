@@ -1119,32 +1119,6 @@ class FireStoreUtils {
     return withdrawalList;
   }
 
-  static Future<DriverIdAcceptReject?> getAcceptedOrders(String orderId, String driverId) async {
-    DriverIdAcceptReject? driverIdAcceptReject;
-    await fireStore.collection(CollectionName.orders).doc(orderId).collection("acceptedDriver").doc(driverId).get().then((value) async {
-      if (value.exists) {
-        driverIdAcceptReject = DriverIdAcceptReject.fromJson(value.data()!);
-      }
-    }).catchError((error) {
-      log("Failed to update user: $error");
-      driverIdAcceptReject = null;
-    });
-    return driverIdAcceptReject;
-  }
-
-  static Future<DriverIdAcceptReject?> getInterCItyAcceptedOrders(String orderId, String driverId) async {
-    DriverIdAcceptReject? driverIdAcceptReject;
-    await fireStore.collection(CollectionName.ordersIntercity).doc(orderId).collection("acceptedDriver").doc(driverId).get().then((value) async {
-      if (value.exists) {
-        driverIdAcceptReject = DriverIdAcceptReject.fromJson(value.data()!);
-      }
-    }).catchError((error) {
-      log("Failed to update user: $error");
-      driverIdAcceptReject = null;
-    });
-    return driverIdAcceptReject;
-  }
-
   StreamController<List<OrderModel>>? getNearestDriverOrderRequestController;
 
   Stream<List<OrderModel>> getOrders(DriverUserModel driverUserModel, double? latitude, double? longLatitude) async* {
