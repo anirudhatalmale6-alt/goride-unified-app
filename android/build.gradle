@@ -17,6 +17,15 @@ subprojects {
         }
     }
 
+    afterEvaluate { project ->
+        if (project.hasProperty('android')) {
+            project.android {
+                if (project.android.hasProperty('compileSdkVersion')) {
+                    compileSdkVersion 35
+                }
+            }
+        }
+    }
 }
 
 tasks.register("clean", Delete) {
