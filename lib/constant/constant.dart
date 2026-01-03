@@ -57,6 +57,7 @@ class Constant {
   static String mapType = "google";
   static String selectedMapType = 'osm';
   static String driverLocationUpdate = "10";
+  static bool isVerifyDocument = true;
 
   static const String ridePlaced = "Ride Placed";
   static const String rideActive = "Ride Active";

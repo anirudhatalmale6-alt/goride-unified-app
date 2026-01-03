@@ -47,7 +47,7 @@ class OrderIntercityScreen extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: controller.isLoading.value
-                          ? Constant.loader(context)
+                          ? Constant.loader()
                           : StreamBuilder<QuerySnapshot>(
                               stream: FirebaseFirestore.instance
                                   .collection(CollectionName.ordersIntercity)
@@ -61,7 +61,7 @@ class OrderIntercityScreen extends StatelessWidget {
                                 }
 
                                 if (snapshot.connectionState == ConnectionState.waiting) {
-                                  return Constant.loader(context);
+                                  return Constant.loader();
                                 }
 
                                 return snapshot.data!.docs.isEmpty

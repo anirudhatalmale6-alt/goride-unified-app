@@ -34,7 +34,7 @@ class NewOrderFreightScreen extends StatelessWidget {
         },
         builder: (controller) {
           return controller.isLoading.value
-              ? Constant.loader(context)
+              ? Constant.loader()
               : controller.driverModel.value.isOnline == false
                   ? Center(
                       child: Text("You are Now offline so you can't get nearest order.".tr),
@@ -43,7 +43,7 @@ class NewOrderFreightScreen extends StatelessWidget {
                       stream: FireStoreUtils().getFreightOrders(Constant.currentLocation!.latitude, Constant.currentLocation!.longitude),
                       builder: (context, snapshot) {
                         if (snapshot.connectionState == ConnectionState.waiting) {
-                          return Constant.loader(context);
+                          return Constant.loader();
                         }
                         if (!snapshot.hasData || (snapshot.data?.isEmpty ?? true)) {
                           return Center(

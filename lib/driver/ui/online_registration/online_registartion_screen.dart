@@ -23,7 +23,7 @@ class OnlineRegistrationScreen extends StatelessWidget {
           return Scaffold(
             backgroundColor: AppColors.primary,
             body: controller.isLoading.value
-                ? Constant.loader(context)
+                ? Constant.loader()
                 : Column(
                     children: [
                       SizedBox(
@@ -34,7 +34,7 @@ class OnlineRegistrationScreen extends StatelessWidget {
                         child: Container(
                           decoration: BoxDecoration(color: Theme.of(context).colorScheme.background, borderRadius: const BorderRadius.only(topLeft: Radius.circular(25), topRight: Radius.circular(25))),
                           child: controller.isLoading.value
-                              ? Constant.loader(context)
+                              ? Constant.loader()
                               : Padding(
                                   padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                                   child: ListView.builder(

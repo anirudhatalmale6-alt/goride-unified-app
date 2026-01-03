@@ -46,7 +46,7 @@ class WithDrawHistoryScreen extends StatelessWidget {
                     builder: (context, snapshot) {
                       switch (snapshot.connectionState) {
                         case ConnectionState.waiting:
-                          return Constant.loader(context);
+                          return Constant.loader();
                         case ConnectionState.done:
                           if (snapshot.hasError) {
                             return Text(snapshot.error.toString());

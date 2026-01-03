@@ -33,7 +33,7 @@ class OrderFreightScreen extends StatelessWidget {
         init: InterCityOrderController(),
         builder: (controller) {
           return controller.isLoading.value
-              ? Constant.loader(context)
+              ? Constant.loader()
               : StreamBuilder<QuerySnapshot>(
                   stream: FirebaseFirestore.instance
                       .collection(CollectionName.ordersIntercity)
@@ -47,7 +47,7 @@ class OrderFreightScreen extends StatelessWidget {
                     }
 
                     if (snapshot.connectionState == ConnectionState.waiting) {
-                      return Constant.loader(context);
+                      return Constant.loader();
                     }
 
                     return snapshot.data!.docs.isEmpty

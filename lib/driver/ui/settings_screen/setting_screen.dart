@@ -30,7 +30,7 @@ class SettingScreen extends StatelessWidget {
           return Scaffold(
             backgroundColor: AppColors.primary,
             body: controller.isLoading.value
-                ? Constant.loader(context)
+                ? Constant.loader()
                 : Column(
                     children: [
                       SizedBox(

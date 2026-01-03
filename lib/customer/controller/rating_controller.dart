@@ -5,7 +5,7 @@ import 'package:goride/utils/fire_store_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../model/review_model.dart';
+import 'package:goride/model/review_model.dart';
 
 class RatingController extends GetxController {
   RxBool isLoading = true.obs;

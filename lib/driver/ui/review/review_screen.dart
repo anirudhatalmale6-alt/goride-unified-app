@@ -38,7 +38,7 @@ class ReviewScreen extends StatelessWidget {
             ),
             backgroundColor: AppColors.primary,
             body: controller.isLoading.value == true
-                ? Constant.loader(context)
+                ? Constant.loader()
                 : Stack(
                     children: [
                       Padding(
@@ -201,7 +201,7 @@ class ReviewScreen extends StatelessWidget {
                                   height: 110,
                                   width: 110,
                                   fit: BoxFit.cover,
-                                  placeholder: (context, url) => Constant.loader(context),
+                                  placeholder: (context, url) => Constant.loader(),
                                   errorWidget: (context, url, error) => Image.network(Constant.userPlaceHolder),
                                 ),
                               ),

@@ -33,7 +33,7 @@ class BankDetailsScreen extends StatelessWidget {
                     width: Responsive.width(100, context),
                     decoration: BoxDecoration(color: Theme.of(context).colorScheme.background, borderRadius: const BorderRadius.only(topLeft: Radius.circular(25), topRight: Radius.circular(25))),
                     child: controller.isLoading.value
-                        ? Constant.loader(context)
+                        ? Constant.loader()
                         : Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                             child: SingleChildScrollView(

@@ -50,7 +50,7 @@ class ProfileScreen extends StatelessWidget {
                                       fit: BoxFit.fill,
                                       height: Responsive.width(30, context),
                                       width: Responsive.width(30, context),
-                                      placeholder: (context, url) => Constant.loader(context),
+                                      placeholder: (context, url) => Constant.loader(),
                                       errorWidget: (context, url, error) => Image.network(Constant.userPlaceHolder),
                                     ),
                                   )
@@ -68,7 +68,7 @@ class ProfileScreen extends StatelessWidget {
                                             fit: BoxFit.fill,
                                             height: Responsive.width(30, context),
                                             width: Responsive.width(30, context),
-                                            placeholder: (context, url) => Constant.loader(context),
+                                            placeholder: (context, url) => Constant.loader(),
                                             errorWidget: (context, url, error) => Image.network(Constant.userPlaceHolder),
                                           ),
                                   ),
@@ -101,7 +101,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   Expanded(
                     child: controller.isLoading.value
-                        ? Constant.loader(context)
+                        ? Constant.loader()
                         : Container(
                             decoration:
                                 BoxDecoration(color: Theme.of(context).colorScheme.background, borderRadius: const BorderRadius.only(topLeft: Radius.circular(25), topRight: Radius.circular(25))),

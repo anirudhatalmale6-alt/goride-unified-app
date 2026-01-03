@@ -20,7 +20,7 @@ class OnBoardingScreen extends StatelessWidget {
         return Scaffold(
           backgroundColor: Theme.of(context).colorScheme.background,
           body: controller.isLoading.value
-              ? Constant.loader(context)
+              ? Constant.loader()
               : Stack(
                   children: [
                     controller.selectedPageIndex.value == 0
@@ -51,7 +51,7 @@ class OnBoardingScreen extends StatelessWidget {
                                         child: CachedNetworkImage(
                                           imageUrl: controller.onBoardingList[index].image.toString(),
                                           fit: BoxFit.cover,
-                                          placeholder: (context, url) => Constant.loader(context),
+                                          placeholder: (context, url) => Constant.loader(),
                                           errorWidget: (context, url, error) => Image.network(Constant.userPlaceHolder),
                                         ),
                                       ),

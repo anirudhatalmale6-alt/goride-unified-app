@@ -15,7 +15,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-import '../../themes/responsive.dart';
+import 'package:goride/themes/responsive.dart';
 
 class InformationScreen extends StatelessWidget {
   const InformationScreen({Key? key}) : super(key: key);

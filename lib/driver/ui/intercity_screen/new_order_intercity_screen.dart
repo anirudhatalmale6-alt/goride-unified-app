@@ -149,7 +149,7 @@ class NewOrderInterCityScreen extends StatelessWidget {
                             ),
                             Expanded(
                               child: controller.isLoading.value
-                                  ? Constant.loader(context)
+                                  ? Constant.loader()
                                   : controller.intercityServiceOrder.isEmpty
                                       ? Center(
                                           child: Text("No Rides found".tr),

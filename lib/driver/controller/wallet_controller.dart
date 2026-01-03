@@ -3,7 +3,7 @@ import 'package:goride/model/bank_details_model.dart';
 import 'package:goride/model/payment_model.dart';
 import 'package:goride/model/wallet_transaction_model.dart';
 import 'package:goride/payment/midtrans_screen.dart';
-import 'package:goride/payment/orangePayScreen.dart';
+import 'package:goride/payment/paystack/orangePayScreen.dart';
 import 'package:goride/payment/xenditModel.dart';
 import 'package:goride/payment/xenditScreen.dart';
 import 'package:goride/utils/fire_store_utils.dart';

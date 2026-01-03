@@ -41,7 +41,7 @@ class OrderMapScreen extends StatelessWidget {
                   )),
             ),
             body: controller.isLoading.value
-                ? Constant.loader(context)
+                ? Constant.loader()
                 : Column(
                     children: [
                       Container(

@@ -47,7 +47,7 @@ class DetailsUploadScreen extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(color: Theme.of(context).colorScheme.background, borderRadius: const BorderRadius.only(topLeft: Radius.circular(25), topRight: Radius.circular(25))),
                     child: controller.isLoading.value
-                        ? Constant.loader(context)
+                        ? Constant.loader()
                         : SingleChildScrollView(
                             child: Column(
                               children: [
@@ -112,7 +112,7 @@ class DetailsUploadScreen extends StatelessWidget {
                                                             fit: BoxFit.fill,
                                                             height: Responsive.height(20, context),
                                                             width: Responsive.width(80, context),
-                                                            placeholder: (context, url) => Constant.loader(context),
+                                                            placeholder: (context, url) => Constant.loader(),
                                                             errorWidget: (context, url, error) => Image.network(
                                                                 'https://firebasestorage.googleapis.com/v0/b/goride-1a752.appspot.com/o/placeholderImages%2Fuser-placeholder.jpeg?alt=media&token=34a73d67-ba1d-4fe4-a29f-271d3e3ca115'),
                                                           ),
@@ -193,7 +193,7 @@ class DetailsUploadScreen extends StatelessWidget {
                                                             fit: BoxFit.fill,
                                                             height: Responsive.height(20, context),
                                                             width: Responsive.width(80, context),
-                                                            placeholder: (context, url) => Constant.loader(context),
+                                                            placeholder: (context, url) => Constant.loader(),
                                                             errorWidget: (context, url, error) => Image.network(
                                                                 'https://firebasestorage.googleapis.com/v0/b/goride-1a752.appspot.com/o/placeholderImages%2Fuser-placeholder.jpeg?alt=media&token=34a73d67-ba1d-4fe4-a29f-271d3e3ca115'),
                                                           ),

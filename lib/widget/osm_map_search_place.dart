@@ -1,4 +1,4 @@
-import 'package:goride/controller/osm_search_place_controller.dart';
+import 'package:goride/customer/controller/osm_search_place_controller.dart';
 import 'package:goride/themes/app_colors.dart';
 import 'package:goride/utils/DarkThemeProvider.dart';
 import 'package:flutter/material.dart';

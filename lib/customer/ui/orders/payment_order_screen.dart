@@ -22,7 +22,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-import '../../themes/button_them.dart';
+import 'package:goride/themes/button_them.dart';
 
 class PaymentOrderScreen extends StatelessWidget {
   const PaymentOrderScreen({Key? key}) : super(key: key);

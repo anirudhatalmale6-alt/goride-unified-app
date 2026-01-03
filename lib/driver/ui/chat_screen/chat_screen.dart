@@ -218,7 +218,7 @@ class _ChatScreensState extends State<ChatScreens> {
                                       tag: data.url!.url,
                                       child: CachedNetworkImage(
                                         imageUrl: data.url!.url,
-                                        placeholder: (context, url) => Constant.loader(context),
+                                        placeholder: (context, url) => Constant.loader(),
                                         errorWidget: (context, url, error) => const Icon(Icons.error),
                                       ),
                                     ),
@@ -290,7 +290,7 @@ class _ChatScreensState extends State<ChatScreens> {
                                         tag: data.url!.url,
                                         child: CachedNetworkImage(
                                           imageUrl: data.url!.url,
-                                          placeholder: (context, url) => Constant.loader(context),
+                                          placeholder: (context, url) => Constant.loader(),
                                           errorWidget: (context, url, error) => const Icon(Icons.error),
                                         ),
                                       ),

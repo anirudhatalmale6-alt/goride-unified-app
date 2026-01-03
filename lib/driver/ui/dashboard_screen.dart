@@ -35,7 +35,7 @@ class DashBoardScreen extends StatelessWidget {
                         }
 
                         if (snapshot.connectionState == ConnectionState.waiting) {
-                          return Constant.loader(context);
+                          return Constant.loader();
                         }
 
                         DriverUserModel driverModel = DriverUserModel.fromJson(snapshot.data!.data()!);
@@ -257,7 +257,7 @@ class DashBoardScreen extends StatelessWidget {
                 builder: (context, snapshot) {
                   switch (snapshot.connectionState) {
                     case ConnectionState.waiting:
-                      return Constant.loader(context);
+                      return Constant.loader();
                     case ConnectionState.done:
                       if (snapshot.hasError) {
                         return Text(snapshot.error.toString());
@@ -273,7 +273,7 @@ class DashBoardScreen extends StatelessWidget {
                                 width: Responsive.width(20, context),
                                 imageUrl: driverModel.profilePic.toString(),
                                 fit: BoxFit.cover,
-                                placeholder: (context, url) => Constant.loader(context),
+                                placeholder: (context, url) => Constant.loader(),
                                 errorWidget: (context, url, error) => Image.network(Constant.userPlaceHolder),
                               ),
                             ),

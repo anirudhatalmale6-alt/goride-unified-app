@@ -43,7 +43,7 @@ class ActiveOrderScreen extends StatelessWidget {
                 return Text('Something went wrong'.tr);
               }
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return Constant.loader(context);
+                return Constant.loader();
               }
               return snapshot.data!.docs.isEmpty
                   ? Center(

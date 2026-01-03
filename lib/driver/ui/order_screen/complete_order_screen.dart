@@ -44,7 +44,7 @@ class CompleteOrderScreen extends StatelessWidget {
                   ),
                   Expanded(
                     child: controller.isLoading.value
-                        ? Constant.loader(context)
+                        ? Constant.loader()
                         : Container(
                             decoration:
                                 BoxDecoration(color: Theme.of(context).colorScheme.background, borderRadius: const BorderRadius.only(topLeft: Radius.circular(25), topRight: Radius.circular(25))),

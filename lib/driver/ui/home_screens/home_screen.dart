@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget {
           return Scaffold(
             backgroundColor: AppColors.primary,
             body: controller.isLoading.value
-                ? Constant.loader(context)
+                ? Constant.loader()
                 : Column(
                     children: [
                       double.parse(controller.driverModel.value.walletAmount.toString()) >= double.parse(Constant.minimumDepositToRideAccept)
