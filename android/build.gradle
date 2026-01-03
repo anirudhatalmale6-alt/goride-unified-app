@@ -16,6 +16,7 @@ subprojects {
             force 'pl.droidsonroids.gif:android-gif-drawable:1.2.25'
         }
     }
+
 }
 
 tasks.register("clean", Delete) {
