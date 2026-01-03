@@ -22,7 +22,16 @@ subprojects { subproject ->
     subproject.plugins.withId("com.android.library") {
         subproject.android {
             if (namespace == null) {
-                namespace = "com.example.${subproject.name.replace('-', '_').replace('_', '')}"
+                // Map specific packages that need custom namespaces
+                def namespaceMap = [
+                    'flutter_paypal_native': 'com.piccmaq.flutter_paypal_native',
+                    'geolocator_android': 'com.baseflow.geolocator',
+                ]
+                if (namespaceMap.containsKey(subproject.name)) {
+                    namespace = namespaceMap[subproject.name]
+                } else {
+                    namespace = "com.example.${subproject.name.replace('-', '_')}"
+                }
             }
             if (!subproject.android.hasProperty('compileSdkVersion') || subproject.android.compileSdkVersion == null) {
                 compileSdk 35
