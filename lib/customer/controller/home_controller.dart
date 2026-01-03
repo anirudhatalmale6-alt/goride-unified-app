@@ -188,7 +188,7 @@ class HomeController extends GetxController {
       }
     });
 
-    await FireStoreUtils().getZone().then((value) {
+    await FireStoreUtils.getZone().then((value) {
       if (value != null) {
         zoneList.value = value;
       }

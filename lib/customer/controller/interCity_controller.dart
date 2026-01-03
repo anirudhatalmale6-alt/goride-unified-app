@@ -86,7 +86,7 @@ class InterCityController extends GetxController {
   RxString selectedPaymentMethod = "".obs;
 
   getPaymentData() async {
-    await FireStoreUtils().getZone().then((value) {
+    await FireStoreUtils.getZone().then((value) {
       if (value != null) {
         zoneList.value = value;
       }
