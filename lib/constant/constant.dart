@@ -58,6 +58,8 @@ class Constant {
   static String selectedMapType = 'osm';
   static String driverLocationUpdate = "10";
   static bool isVerifyDocument = true;
+  static String minimumAmountToWithdrawal = "0.0";
+  static String minimumDepositToRideAccept = "0.0";
 
   static const String ridePlaced = "Ride Placed";
   static const String rideActive = "Ride Active";
@@ -324,5 +326,17 @@ class Constant {
     ui.Codec codec = await ui.instantiateImageCodec(data.buffer.asUint8List(), targetWidth: width);
     ui.FrameInfo fi = await codec.getNextFrame();
     return (await fi.image.toByteData(format: ui.ImageByteFormat.png))!.buffer.asUint8List();
+  }
+
+  static double calculateAdminCommission({String? amount, AdminCommission? adminCommission}) {
+    double taxAmount = 0.0;
+    if (adminCommission != null) {
+      if (adminCommission.type == "fix") {
+        taxAmount = double.parse(adminCommission.amount.toString());
+      } else {
+        taxAmount = (double.parse(amount.toString()) * double.parse(adminCommission.amount!.toString())) / 100;
+      }
+    }
+    return taxAmount;
   }
 }

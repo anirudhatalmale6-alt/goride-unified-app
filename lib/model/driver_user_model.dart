@@ -24,6 +24,7 @@ class DriverUserModel {
   double? rotation;
   Positions? position;
   Timestamp? createdAt;
+  List<dynamic>? zoneIds;
 
   DriverUserModel(
       {this.phoneNumber,
@@ -43,7 +44,7 @@ class DriverUserModel {
         this.reviewsSum,
         this.rotation,
         this.position,
-        this.walletAmount,this.createdAt});
+        this.walletAmount,this.createdAt,this.zoneIds});
 
   DriverUserModel.fromJson(Map<String, dynamic> json) {
     phoneNumber = json['phoneNumber'];
@@ -65,6 +66,7 @@ class DriverUserModel {
     location = json['location'] != null ? LocationLatLng.fromJson(json['location']) : null;
     position = json['position'] != null ? Positions.fromJson(json['position']) : null;
     createdAt = json['createdAt'];
+    zoneIds = json['zoneIds'];
 
   }
 
@@ -95,6 +97,7 @@ class DriverUserModel {
     if (position != null) {
       data['position'] = position!.toJson();
     }
+    data['zoneIds'] = zoneIds;
     return data;
   }
 }

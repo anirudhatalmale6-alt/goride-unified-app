@@ -101,14 +101,14 @@ class ButtonThem {
   static roundButton(
     BuildContext context, {
     required String title,
-    required Color btnColor,
-    required Color txtColor,
     double btnHeight = 48,
     double txtSize = 14,
     double btnWidthRatio = 0.9,
     required Function() onPress,
     bool isVisible = true,
   }) {
+    final themeChange = Provider.of<DarkThemeProvider>(context);
+
     return Visibility(
       visible: isVisible,
       child: SizedBox(
@@ -120,11 +120,11 @@ class ButtonThem {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
           ),
-          color: btnColor,
+          color: themeChange.getThem() ? AppColors.darkModePrimary : AppColors.primary,
           child: Text(
             title.toUpperCase(),
             textAlign: TextAlign.center,
-            style: GoogleFonts.poppins(color: txtColor, fontSize: txtSize, fontWeight: FontWeight.w600),
+            style: GoogleFonts.poppins(fontSize: txtSize, fontWeight: FontWeight.w600),
           ),
         ),
       ),

@@ -61,6 +61,7 @@ class TextFieldThem {
     required Widget prefix,
     TextInputType keyBoardType = TextInputType.text,
     bool enable = true,
+    ValueChanged<String>? onChanged,
   }) {
     final themeChange = Provider.of<DarkThemeProvider>(context);
 
@@ -70,6 +71,7 @@ class TextFieldThem {
         enabled: enable,
         keyboardType: keyBoardType,
         style: GoogleFonts.poppins(color: themeChange.getThem() ? Colors.white : Colors.black),
+        onChanged: onChanged,
         decoration: InputDecoration(
             prefix: prefix,
             filled: true,

@@ -3,7 +3,7 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:goride/constant/constant.dart';
 import 'package:goride/constant/show_toast_dialog.dart';
 import 'package:goride/model/intercity_order_model.dart';
-import 'package:goride/model/order/complete_intercity_order_controller.dart';
+import 'package:goride/driver/controller/complete_intercity_order_controller.dart';
 import 'package:goride/model/tax_model.dart';
 import 'package:goride/themes/app_colors.dart';
 import 'package:goride/themes/responsive.dart';
