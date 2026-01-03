@@ -16,14 +16,17 @@ subprojects {
             force 'pl.droidsonroids.gif:android-gif-drawable:1.2.25'
         }
     }
+}
 
-    afterEvaluate { project ->
-        if (project.hasProperty('android')) {
-            project.android {
-                if (project.android.hasProperty('compileSdkVersion')) {
-                    compileSdkVersion 35
-                }
-            }
+subprojects {
+    plugins.withId("com.android.library") {
+        android {
+            compileSdk 35
+        }
+    }
+    plugins.withId("com.android.application") {
+        android {
+            compileSdk 35
         }
     }
 }
